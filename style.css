@@ -1,7 +1,26 @@
-html{
-    color:white;
-    /* background: rgb(2,0,36); */
-    background: radial-gradient(circle, rgba(0,0,255,1) 24%, rgba(2,0,36,1) 58%, rgba(0,212,255,1) 100%);
+html {
+    color: white;
+    background-color: #b5ceec;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 #students-container {
@@ -9,25 +28,82 @@ html{
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
+    flex: 1;
+    overflow-x: hidden;
+    width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+    height: calc(100vh - 180px);
 }
 
 .student-container-son {
     flex: 0 0 calc(50% - 10px);
     padding: 20px;
-    /* border: 1px solid black; */
-    border-radius: 200px;
+    background-color: white;
+    border-radius: 12px;
     box-sizing: border-box;
-    /* background: rgb(2,0,36); */
-    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,0,255,1) 55%, rgba(0,212,255,1) 100%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    height: calc(25% - 20px);
+}
+
+.student-container-son:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 768px) {
-    .student-container {
+    .student-container-son {
         flex: 0 0 100%;
+        height: auto;
     }
 }
 
+header {
+    padding: 10px 0;
+    background: linear-gradient(to bottom, #a7c6ed, #b5ceec);
+    color: white;
+    text-align: center;
+}
 
+footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to top, #a7c6ed, #b5ceec);
+    color: rgb(150, 150, 150);
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    margin-top: auto;
+}
 
-/* materialdesign */
+h1, h2, h4, h5 {
+    margin: 0;
+    font-weight: 500;
+    color: rgb(80, 80, 80);
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #6200ea;
+}
+
+h4 {
+    font-size: 16px;
+    color: #777;
+}
+
+h5 {
+    font-size: 14px;
+    color: #999;
+}
