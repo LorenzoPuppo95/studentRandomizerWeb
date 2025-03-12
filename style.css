@@ -1,6 +1,6 @@
 html {
     color: white;
-    background-color: #b5ceec;
+    background-color: #cbd9ea;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -63,7 +63,7 @@ body {
 
 header {
     padding: 10px 0;
-    background: linear-gradient(to bottom, #a7c6ed, #b5ceec);
+    background: linear-gradient(to bottom, #a7c6ed, #cbd9ea);
     color: white;
     text-align: center;
 }
@@ -72,7 +72,7 @@ footer {
     position: sticky;
     bottom: 0;
     width: 100%;
-    background: linear-gradient(to top, #a7c6ed, #b5ceec);
+    background: linear-gradient(to top, #a7c6ed, #cbd9ea);
     color: rgb(80, 80, 80);
     text-align: center;
     padding: 20px;
