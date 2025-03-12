@@ -1,22 +1,35 @@
 import DataService from "./services/data-service.js";
 
 const service = new DataService();
-const container = document.getElementById('students-container');
 
-function reloadPage() {
-    container.innerHTML = '';
+function nameSort() {
+    const studentData = service.getStudentsByName();
+    render(studentData);
+}
+window.nameSort = nameSort;
+
+function ageSort() {
+    const studentData = service.getStudentsByAge();
+    render(studentData);
+}
+window.ageSort = ageSort;
+
+function shuffleSort() {
     const studentData = service.getShuffledStudents();
+    render(studentData);
+}
+window.shuffleSort = shuffleSort;
+
+const studentData = service.getShuffledStudents();
+render(studentData);
+function render(studentData) {
+    const container = document.getElementById('students-container');
+    container.innerHTML = '';
     studentData.forEach(student => {
         const studentContainer = document.createElement('div');
-        const nameContainer = document.createElement('h2');
-        const infoContainer = document.createElement('h4');
-        const genderContainer = document.createElement('h5');
-        const nameNode = document.createTextNode(student.name + ' ' + student.surname);
-        nameContainer.appendChild(nameNode);
-        const infoNode = document.createTextNode('From ' + student.nationality + ', ' + student.getAge() + ' years old!');
-        infoContainer.appendChild(infoNode);
-        const genderNode = document.createTextNode('Is a ' + student.gender);
-        genderContainer.appendChild(genderNode);
+        const nameContainer = createTextElement('h2', student.name + ' ' + student.surname);
+        const infoContainer = createTextElement('h4', 'From ' + student.nationality + ', ' + student.getAge() + ' years old!');
+        const genderContainer = createTextElement('h5', 'Is a ' + student.gender);
         studentContainer.classList.add('student-container-son');
         container.appendChild(studentContainer);
         studentContainer.appendChild(nameContainer);
@@ -24,6 +37,17 @@ function reloadPage() {
         studentContainer.appendChild(genderContainer);
     });
 }
-reloadPage();
-const refreshButton = document.getElementById('refresh-button');
-refreshButton.addEventListener('click', reloadPage);
+
+function createTextElement(elementType, text) {
+    const element = document.createElement(elementType);
+    const node = document.createTextNode(text);
+    element.appendChild(node);
+    return element;
+}
+
+const nameButton = document.getElementById('name-button');
+nameButton.addEventListener('click', nameSort);
+const ageButton = document.getElementById('age-button');
+ageButton.addEventListener('click', ageSort);
+const shuffleButton = document.getElementById('shuffle-button');
+shuffleButton.addEventListener('click', shuffleSort);

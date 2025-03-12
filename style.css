@@ -33,7 +33,7 @@ body {
     width: 100%;
     justify-content: space-between;
     align-items: stretch;
-    height: calc(100vh - 180px);
+    height: calc(100vh - 220px);
 }
 
 .student-container-son {
@@ -80,7 +80,10 @@ footer {
     margin-top: auto;
 }
 
-h1, h2, h4, h5 {
+h1,
+h2,
+h4,
+h5 {
     margin: 0;
     font-weight: 500;
     color: rgb(80, 80, 80);
@@ -108,55 +111,35 @@ h5 {
     color: #999;
 }
 
-header h1 {
+#button-container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 20px;
+    gap: 20px;
 }
 
-#refresh-button {
-    background-color: #6200ea;
+button {
+    background-color: #6200ee;
     color: white;
-    font-size: 20px;
-    padding: 12px;
+    font-size: 16px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 50%;
+    border-radius: 4px;
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s ease-in-out;
-    font-family: 'Roboto', sans-serif;
-    margin-left: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 200px;
 }
 
-#refresh-button .material-icons {
-    font-size: 20px;
+button:hover {
+    background-color: #3700b3;
+    transform: translateY(-2px);
 }
 
-#refresh-button:hover {
-    background-color: #4500b5;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+button:active {
+    background-color: #6200ee;
+    transform: translateY(2px);
 }
 
-#refresh-button:focus {
+button:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(98, 0, 148, 0.3);
-}
-
-#refresh-button:active {
-    transform: scale(0.98);
-    background-color: #03dac5;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 768px) {
-    #refresh-button {
-        padding: 10px;
-        font-size: 18px;
-    }
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }

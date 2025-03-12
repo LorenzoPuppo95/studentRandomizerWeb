@@ -113,6 +113,13 @@ export default class DataService {
         return studentsClone;
     }
 
+    getStudentsByAge() {
+        const students = this.getStudentsData();
+        const studentsClone = students.slice();
+        studentsClone.sort((s1, s2) => s1.compareByAge(s2));
+        return studentsClone;
+    }
+
     getShuffledStudents() {
         const students = this.getStudentsData();
         const studentsClone = students.slice();
