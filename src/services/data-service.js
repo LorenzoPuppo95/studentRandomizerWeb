@@ -1,3 +1,5 @@
+import Student from "../../model/student.js";
+
 export default class DataService {
     constructor() { }
     getStudentsData() {
@@ -5,7 +7,7 @@ export default class DataService {
             {
                 "name": "Lorenzo",
                 "surname": "Puppo",
-                "gender": "Male",
+                "gender": "Dragon",
                 "marks": [
                     7,
                     10,
@@ -100,18 +102,30 @@ export default class DataService {
             }
         ]
 
-        const sortedData = data.sort((a, b) => {
-            const name1 = a.name.toUpperCase();
-            const name2 = b.name.toUpperCase();
-            if (name1 < name2) {
-                return -1;
-            }
-            if (name1 > name2) {
-                return 1;
-            }
-            return 0;
-        });
+        const students = this.createStudentsFromRawData(data);
+        return students;
+    }
 
-        return sortedData;
+    getStudentsByName() {
+        const students = this.getStudentsData();
+        const studentsClone = students.slice();
+        studentsClone.sort((s1, s2) => s1.compareByName(s2));
+        return studentsClone;
+    }
+
+    getRandomizedStudents() {
+        const students = this.getStudentsData();
+        const randomizedStudents = students.sort(() => Math.random() - 0.5);
+        return randomizedStudents;
+    }
+
+    createStudentsFromRawData(data) {
+        const students = [];
+        for (let i = 0; i < data.length; i++) {
+            const element = data[i];
+            const newStudent = new Student(element.name, element.surname, element.yob, element.gender, element.nationality, element.marks);
+            students.push(newStudent);
+        }
+        return students;
     }
 }

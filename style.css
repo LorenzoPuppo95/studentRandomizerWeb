@@ -107,3 +107,56 @@ h5 {
     font-size: 14px;
     color: #999;
 }
+
+header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#refresh-button {
+    background-color: #6200ea;
+    color: white;
+    font-size: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 10px;
+}
+
+#refresh-button .material-icons {
+    font-size: 20px;
+}
+
+#refresh-button:hover {
+    background-color: #4500b5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#refresh-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(98, 0, 148, 0.3);
+}
+
+#refresh-button:active {
+    transform: scale(0.98);
+    background-color: #03dac5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    #refresh-button {
+        padding: 10px;
+        font-size: 18px;
+    }
+}
