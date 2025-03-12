@@ -5,7 +5,7 @@ const container = document.getElementById('students-container');
 
 function reloadPage() {
     container.innerHTML = '';
-    const studentData = service.getRandomizedStudents();
+    const studentData = service.getShuffledStudents();
     studentData.forEach(student => {
         const studentContainer = document.createElement('div');
         const nameContainer = document.createElement('h2');

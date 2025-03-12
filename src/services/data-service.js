@@ -113,10 +113,25 @@ export default class DataService {
         return studentsClone;
     }
 
-    getRandomizedStudents() {
+    getShuffledStudents() {
         const students = this.getStudentsData();
-        const randomizedStudents = students.sort(() => Math.random() - 0.5);
-        return randomizedStudents;
+        const studentsClone = students.slice();
+        const shuffledStudents = this.shuffleArray(studentsClone);
+        return shuffledStudents;
+    }
+
+    shuffleArray(array) {
+        const newArray = array.slice();
+        newArray.sort(() => Math.random() - 0.5);
+        return newArray;
+        // const cloneArray=array.slice();
+        // const newArray=[];
+        // while(cloneArray.length > 0){
+        //     const randomIndex = Math.floor(Math.random() * cloneArray.length);
+        //     newArray.push(cloneArray[randomIndex]);
+        //     cloneArray.splice(randomIndex, 1);
+        // }
+        // return newArray;
     }
 
     createStudentsFromRawData(data) {
