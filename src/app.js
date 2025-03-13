@@ -2,26 +2,31 @@ import DataService from "./services/data-service.js";
 
 const service = new DataService();
 
+function getStudents(){
+    const studentPromise = service.getStudentsData();
+    studentPromise.then(studentData => render(studentData));    
+}
+window.getStudents = getStudents;
+
 function nameSort() {
-    const studentData = service.getStudentsByName();
-    render(studentData);
+    const studentPromise = service.getStudentsByName();
+    studentPromise.then(studentData => render(studentData));  
 }
 window.nameSort = nameSort;
 
 function ageSort() {
-    const studentData = service.getStudentsByAge();
-    render(studentData);
+    const studentPromise = service.getStudentsByAge();
+    studentPromise.then(studentData => render(studentData));  
 }
 window.ageSort = ageSort;
 
-function shuffleSort() {
-    const studentData = service.getShuffledStudents();
-    render(studentData);
+async function shuffleSort() {
+    const studentData = await service.getShuffledStudents();
+    render(studentData);  
 }
 window.shuffleSort = shuffleSort;
 
-const studentData = service.getShuffledStudents();
-render(studentData);
+getStudents();
 function render(studentData) {
     const container = document.getElementById('students-container');
     container.innerHTML = '';

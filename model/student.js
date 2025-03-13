@@ -1,11 +1,11 @@
 export default class Student {
     constructor(name, surname, yob, gender = "undefined", nationality = "world", marks = []) {
         this.name = name;
-        this.surname = surname;
-        this.yob = yob;
-        this.gender = gender;
-        this.nationality = nationality;
-        this.marks = marks;
+            this.surname = surname;
+            this.yob = yob;
+            this.gender = gender;
+            this.nationality = nationality;
+            this.marks = marks;
     }
 
     getAge() {
@@ -15,15 +15,15 @@ export default class Student {
         return age;
     }
 
-    compareByName(secondStudent) {
-        const myName = this.name;
-        const yourName = secondStudent.name;
+    compareByName(secondStudent){
+        const myName=this.name;
+        const yourName=secondStudent.name;
         return myName.localeCompare(yourName);
     }
 
-    compareByAge(secondStudent) {
-        const myAge = this.getAge();
-        const yourAge = secondStudent.getAge();
+    compareByAge(secondStudent){
+        const myAge=this.getAge();
+        const yourAge=secondStudent.getAge();
         if (myAge < yourAge) {
             return -1;
         } else if (myAge > yourAge) {
